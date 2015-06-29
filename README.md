@@ -19,7 +19,7 @@ Day 1 (29-JUN-2015):
   - modularization of javascript  
   - user IIFE functions (or self invoking functions)  
   - JavaScript Closures: an idea where values from outer function lives longer for inner functions  
---
+
 - AngularJS:  
   - Tools: Batarang / Sublime / node.js  
   - Include angular.js file  
