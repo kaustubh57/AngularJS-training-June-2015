@@ -7,10 +7,55 @@
 </head>
 <body ng-app="Login">
 
-<div ng-controller="LoginController">
-	<input ng-model="loginname" />
-	<input ng-model="loginname" />
+<div ng-controller="Login.LoginController">
+    <!-- AngularJS text fields -->
+    <label for="userForm.fname">FName</label>: <input id="userForm.fname" ng-model="userForm.fname" /> <br/>
+    <label for="userForm.lname">LName</label>: <input id="userForm.lname" ng-model="userForm.lname" /> <br/>
 
+    <!-- AngularJS radio button -->
+    <label>Gender</label>:&nbsp;
+    <span ng-repeat="gender in gendersI18N">
+        <input id="userForm.gender.{{gender.key}}" name="userForm.gender" ng-model="userForm.gender" type="radio" ng-value="gender.key"/>
+        <label for="userForm.gender.{{gender.key}}">{{gender.label}}</label>&nbsp;&nbsp;
+    </span>
+    <!--<input id="userForm.gender.male" name="userForm.gender" ng-model="userForm.gender" type="radio" ng-value="{{genders.male}}"/>-->
+    <!--<label for="userForm.gender.male">{{genderStrings.male}}</label>&nbsp;&nbsp;-->
+    <!--<input id="userForm.gender.female" name="userForm.gender" ng-model="userForm.gender" type="radio" ng-value="{{genders.female}}"/>-->
+    <!--<label for="userForm.gender.female">{{genderStrings.female}}</label>&nbsp;&nbsp;-->
+    <br/>
+
+    <!-- AngularJS checkboxes -->
+    <label>Skills:</label>&nbsp;
+    <span ng-repeat="skill in skillSet">
+        <input type="checkbox" ng-model="userForm.selectedSkills[$index]"
+               id="userForm.selectedSkills.{{skill.key}}"
+               ng-true-value="'{{skill.key}}'" ng-false-value="'none'"/>
+        <label for="userForm.selectedSkills.{{skill.key}}">{{skill.label}}</label>&nbsp;&nbsp;
+    </span>
+    <br/>
+
+    <!-- AngularJS select -->
+    <!-- http://stackoverflow.com/questions/13047923/working-with-select-using-angulars-ng-options -->
+    <label for="userForm.country">Countries:</label>&nbsp;
+    <!-- WITH NG-REPEAT on OPTIONS -->
+    <!--<select ng-model="userForm.country" id="userForm.country">-->
+        <!--<option ng-repeat="country in countries" value="{{country.key}}">{{country.label}}</option>-->
+    <!--</select>-->
+    <!-- WITH NG-OPTIONS -->
+    <select  ng-model="userForm.country" id="userForm.country" ng-options="country.label for country in countries track by country.key">
+    </select>
+    <br/>
+
+    <button ng-click="saveUser()">Save User</button>
+	<hr/>
+
+	List of Users:<br/>
+	<ul>
+		<li ng-repeat="user in users">
+            {{user.fname}}, {{user.lname}}, {{getGenderLabel(user.gender)}}, {{getSkillLabel(user.selectedSkills)}},
+            {{getCountryLabel(user.country)}}
+        </li>
+	</ul>
 </div>
 
 </body>

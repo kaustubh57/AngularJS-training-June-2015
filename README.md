@@ -33,4 +33,17 @@ Day 1 (29-JUN-2015):
 
 ===============================
 
-Day 2 (30-JUN-2015):
+Day 2 (30-JUN-2015):  
+-AngularJS:  
+  - One way or two way data binding  
+  - Angular directives (tags):
+    - ng-click  
+    - ng-repeat  
+    - ng-class  
+    - ng-true-value  
+    - ng-false-value  
+  - Angular service:  
+    - $http  
+
+What is `Promise`: A promise represents the eventual result of an operation. You can use a promise to specify what to do when an operation eventually succeeds or fails.  
+http://www.dwmkerr.com/promises-in-angularjs-the-definitive-guide/  
