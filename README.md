@@ -63,3 +63,13 @@ Day 3 (1-JULY-2015):
     - $filter  
 
 - To return anything using 'return' statement some character has to be on the same line. If we add anything on next line it will NOT work.  
+
+- ng-grid: https://github.com/angular-ui/ng-grid/wiki  
+  - Create grid with "gridOpts" to scope  
+  - define data from scope object  
+  - define column definition with "columnDefs"  
+  - display name can be changed  
+  - can define cell with different properties like editable / width / resizable  
+  - can assign template to cell with "cellTemplate"  
+  - can assess row values in template with row object and its properties like row.rowIndex, col.field etc
+   

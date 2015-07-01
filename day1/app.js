@@ -5,7 +5,13 @@ login.controller('Login.LoginController', ['$scope', '$http', 'UserService', fun
 
     // Grid options object
     scope.gridOpts = {
-        data: 'users'
+        data: 'users',
+        columnDefs: [
+            { field: 'fname', displayName: 'First Name', enableCellEdit: true, resizable: true, width: 100 },
+            { field: 'lname', displayName: 'Last Name', width: 100 },
+            { field: 'age', displayName: 'Age', cellTemplate:'template/ageCellTemplate.html', width: 100},
+            { displayName: 'Delete User', cellTemplate:'template/deleteCellTemplate.html', width: 100 }
+        ]
     };
 
     scope.gendersI18N = [
@@ -127,9 +133,11 @@ login.controller('Login.LoginController', ['$scope', '$http', 'UserService', fun
         });
     };
 
-    scope.deleteUser = function(userFname, userIndex) {
+    //scope.deleteUser = function(userFname, userIndex) {
+    scope.deleteUser = function(userIndex) {
+        var user = scope.users[userIndex];
         // Use of service
-        var promise = UserService.delete(userFname);
+        var promise = UserService.delete(user.fname);
         promise.success(function(data) {
             scope.users.splice(userIndex,1);
         });
