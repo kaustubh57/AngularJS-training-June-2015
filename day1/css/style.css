@@ -4,5 +4,9 @@
 
 .gridStyle {
 	height: 400px;
-	width: 400px;
+	width: 840px;
+}
+
+.deleteButton {
+	background-color: red;
 }

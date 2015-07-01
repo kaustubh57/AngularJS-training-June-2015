@@ -71,5 +71,6 @@ Day 3 (1-JULY-2015):
   - display name can be changed  
   - can define cell with different properties like editable / width / resizable  
   - can assign template to cell with "cellTemplate"  
+  - can assign header template to cell with "headerCellTemplate"
   - can assess row values in template with row object and its properties like row.rowIndex, col.field etc
    

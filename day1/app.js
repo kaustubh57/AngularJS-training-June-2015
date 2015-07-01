@@ -3,14 +3,57 @@ var login = angular.module('Login',['DataService', 'Utilities', 'ngGrid']);
 login.controller('Login.LoginController', ['$scope', '$http', 'UserService', function (scope, http, UserService) {
     scope.users = [];
 
+    var filterBarPlugin = {
+            init: function(scope, grid) {
+                filterBarPlugin.scope = scope;
+                filterBarPlugin.grid = grid;
+                scope.$watch(function() {
+                    var searchQuery = "";
+                    angular.forEach(filterBarPlugin.scope.columns, function(col) {
+                        if (col.visible && col.filterText) {
+                            var filterText = (col.filterText.indexOf('*') == 0 ? col.filterText.replace('*', '') : "^" + col.filterText) + ";";
+                            searchQuery += col.displayName + ": " + filterText;
+                            // searchQuery += col.displayName + ": " + col.filterText;
+                        }
+                    });
+                    return searchQuery;
+                }, function(searchQuery) {
+                    filterBarPlugin.scope.$parent.filterText = searchQuery;
+                    filterBarPlugin.grid.searchProvider.evalFilter();
+                });
+            },
+            scope: undefined,
+            grid: undefined,
+    };
+
     // Grid options object
     scope.gridOpts = {
         data: 'users',
+        headerRowHeight: 60,
+        showGroupPanel: true,
+        showFilter: true,
+        rowHeight: 40,
+        plugins: [filterBarPlugin],
         columnDefs: [
-            { field: 'fname', displayName: 'First Name', enableCellEdit: true, resizable: true, width: 100 },
-            { field: 'lname', displayName: 'Last Name', width: 100 },
-            { field: 'age', displayName: 'Age', cellTemplate:'template/ageCellTemplate.html', width: 100},
-            { displayName: 'Delete User', cellTemplate:'template/deleteCellTemplate.html', width: 100 }
+            { field: 'fname', displayName: 'First Name', 
+              enableCellEdit: true, resizable: true, width: 160,
+              headerCellTemplate: 'template/filterHeaderTemplate.html',
+              cellTemplate:'template/fnameCellTemplate.html'},
+            { field: 'lname', displayName: 'Last Name', width: 160,
+              headerCellTemplate: 'template/filterHeaderTemplate.html'},
+            { field: 'age', displayName: 'Age', 
+              groupable: true, width: 160,
+              headerCellTemplate: 'template/filterHeaderTemplate.html', 
+              cellTemplate:'template/ageCellTemplate.html'},
+            { field: 'gender', displayName: 'Gender', 
+              groupable: true, width: 160,
+              //headerCellTemplate: 'template/filterHeaderTemplate.html', 
+              cellTemplate:'template/genderCellTemplate.html'},
+            { field: 'selectedSkills', displayName: 'Skill Set', 
+              groupable: true, width: 160,
+              headerCellTemplate: 'template/filterHeaderTemplate.html', 
+              cellTemplate:'template/skillCellTemplate.html'},  
+            { displayName: 'Delete User', width: 160, cellTemplate:'template/deleteCellTemplate.html'}
         ]
     };
 
