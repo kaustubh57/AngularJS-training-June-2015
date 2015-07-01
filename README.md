@@ -29,7 +29,6 @@ Day 1 (29-JUN-2015):
     - ng-model  
     - ng-bind  
   - {{}}: Data binding expressions  
-  
 
 ===============================
 
@@ -47,3 +46,20 @@ Day 2 (30-JUN-2015):
 
 What is `Promise`: A promise represents the eventual result of an operation. You can use a promise to specify what to do when an operation eventually succeeds or fails.  
 http://www.dwmkerr.com/promises-in-angularjs-the-definitive-guide/  
+
+===============================
+
+Day 3 (1-JULY-2015):
+- AngularJS:
+  - $http service:  
+    - Create with just method name. e.g. http.put('data.json', scope.userForm)  
+    - Create by passing JSON parameter like url, data, method, headers, etc.  
+    - Use Angular service
+  - service:
+    - Create service with "module.service"  
+  - filter  
+    - Create filter with "module.filter"
+    - One filter should serve ONLY ONE purpose  
+    - $filter  
+
+- To return anything using 'return' statement some character has to be on the same line. If we add anything on next line it will NOT work.  

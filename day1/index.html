@@ -2,17 +2,19 @@
 <html>
 <head>
 	<title>AngularJS training</title>
-	<script type="text/javascript" src="lib/angular.js"></script>
-	<script type="text/javascript" src="app.js"></script>
+	<!-- CSS: bootstrap / ng-grid / style -->
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/ng-grid.min.css"/>
 </head>
 <body ng-app="Login">
 
 <div ng-controller="Login.LoginController">
-    <!-- AngularJS text fields -->
+    <!-- AngularJS text fields FIRST and LAST NAME-->
     <label for="userForm.fname">FName</label>: <input id="userForm.fname" ng-model="userForm.fname" /> <br/>
     <label for="userForm.lname">LName</label>: <input id="userForm.lname" ng-model="userForm.lname" /> <br/>
 
-    <!-- AngularJS radio button -->
+    <!-- AngularJS radio button GENDER -->
     <label>Gender</label>:&nbsp;
     <span ng-repeat="gender in gendersI18N">
         <input id="userForm.gender.{{gender.key}}" name="userForm.gender" ng-model="userForm.gender" type="radio" ng-value="gender.key"/>
@@ -24,7 +26,7 @@
     <!--<label for="userForm.gender.female">{{genderStrings.female}}</label>&nbsp;&nbsp;-->
     <br/>
 
-    <!-- AngularJS checkboxes -->
+    <!-- AngularJS checkboxes SKILLS -->
     <label>Skills:</label>&nbsp;
     <span ng-repeat="skill in skillSet">
         <input type="checkbox" ng-model="userForm.selectedSkills[$index]"
@@ -34,7 +36,7 @@
     </span>
     <br/>
 
-    <!-- AngularJS select -->
+    <!-- AngularJS select COUNTRY -->
     <!-- http://stackoverflow.com/questions/13047923/working-with-select-using-angulars-ng-options -->
     <label for="userForm.country">Countries:</label>&nbsp;
     <!-- WITH NG-REPEAT on OPTIONS -->
@@ -46,17 +48,30 @@
     </select>
     <br/>
 
+    <!-- AngularJS text fields AGE / SALARY-->
+    <label for="userForm.age">Age</label>: <input id="userForm.age" ng-model="userForm.age" /> <br/>
+    <label for="userForm.salary">Salary</label>: <input id="userForm.salary" ng-model="userForm.salary" /> <br/>
+
     <button ng-click="saveUser()">Save User</button>
 	<hr/>
 
 	List of Users:<br/>
-	<ul>
+    <div class="gridStyle" ng-grid="gridOpts"></div>
+
+	<!-- <ol>
 		<li ng-repeat="user in users">
-            {{user.fname}}, {{user.lname}}, {{getGenderLabel(user.gender)}}, {{getSkillLabel(user.selectedSkills)}},
-            {{getCountryLabel(user.country)}}
+            {{user.fname | ellipsis: 2}}, {{user.lname}}, {{getGenderLabel(user.gender)}}, {{getSkillLabel(user.selectedSkills)}},
+            {{getCountryLabel(user.country)}}, {{user.age | AgeFilter}}, {{user.salary|currency}} <button ng-click="deleteUser(user.fname, $index)">X</button>
         </li>
-	</ul>
+	</ol> -->
 </div>
 
 </body>
 </html>
+<!-- JavaScript: JQuuery / Angular / ng-grid / -->
+<script type="text/javascript" src="lib/jquery.min.js"></script>
+<script type="text/javascript" src="lib/angular.js"></script>
+<script type="text/javascript" src="lib/ng-grid-2.0.14.min.js"></script>
+<script type="text/javascript" src="Utilities.js"></script>
+<script type="text/javascript" src="UserService.js"></script>
+<script type="text/javascript" src="app.js"></script>

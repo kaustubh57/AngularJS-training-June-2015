@@ -1,0 +1,8 @@
+{
+	"countries": [
+        {"key":"IN", "label":"India"},
+        {"key":"PAK", "label":"Pakistan"},
+        {"key":"NP", "label":"Nepal"},
+        {"key":"BAN", "label":"Bangladesh"}
+    ]
+}

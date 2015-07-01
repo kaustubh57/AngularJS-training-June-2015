@@ -1,7 +1,12 @@
-var login = angular.module('Login',[]);
+var login = angular.module('Login',['DataService', 'Utilities', 'ngGrid']);
 
-login.controller('Login.LoginController', ['$scope', '$http', function (scope, http) {
+login.controller('Login.LoginController', ['$scope', '$http', 'UserService', function (scope, http, UserService) {
     scope.users = [];
+
+    // Grid options object
+    scope.gridOpts = {
+        data: 'users'
+    };
 
     scope.gendersI18N = [
         {key: 'm',label: 'Male'},
@@ -96,9 +101,23 @@ login.controller('Login.LoginController', ['$scope', '$http', function (scope, h
         return countryLabel;
     };
 
-
     scope.saveUser = function() {
-        var promise = http.put('data.json', scope.userForm);
+        // METHOD 1: Use of http methods directly
+        // var promise = http.put('data.json', scope.userForm);
+
+        // METHOD 2: Use of http method with parametrized JSON data
+        //var promise = http({
+        //    url: 'data.json',
+        //    method: 'put',
+        //    data: scope.userForm,
+        //    headers: {
+        //        //token: '',
+        //        location: 'PUNE'
+        //    }
+        //});
+
+        // METHOD 3: Use of service
+        var promise = UserService.save(scope.userForm);
         promise.success(function(data) {
             scope.users.push(angular.copy(scope.userForm));
             scope.userForm = {};
@@ -106,7 +125,17 @@ login.controller('Login.LoginController', ['$scope', '$http', function (scope, h
         promise.error(function(data) {
             console.log('error while saving user...');
         });
+    };
 
-    }
+    scope.deleteUser = function(userFname, userIndex) {
+        // Use of service
+        var promise = UserService.delete(userFname);
+        promise.success(function(data) {
+            scope.users.splice(userIndex,1);
+        });
+        promise.error(function(data) {
+            console.log('error while deleting user...');
+        });
+    };
 
 }]);
