@@ -42,7 +42,7 @@ Day 2 (30-JUN-2015):
     - ng-true-value  
     - ng-false-value  
   - Angular service:  
-    - $http  
+    - $http (https://docs.angularjs.org/api/ng/service/$http)  
 
 What is `Promise`: A promise represents the eventual result of an operation. You can use a promise to specify what to do when an operation eventually succeeds or fails.  
 http://www.dwmkerr.com/promises-in-angularjs-the-definitive-guide/  
@@ -73,4 +73,24 @@ Day 3 (1-JULY-2015):
   - can assign template to cell with "cellTemplate"  
   - can assign header template to cell with "headerCellTemplate"
   - can assess row values in template with row object and its properties like row.rowIndex, col.field etc
-   
+
+===============================
+
+Day 4 (2-JULY-2015):
+- AngularJS:
+  - $http service: 
+    - `transformRequest`: The transform function or an array of such functions. The transform function takes the http request body and headers and returns its transformed (typically serialized) version. e.g. function(data, headersGetter)
+      - Can be added locally
+      - Can be added at global level: $http.default.transformRequest(FUNCTION).
+    - `transformResponse`: The transform function takes the http response body, headers and status and returns its transformed (typically deserialized) version.
+    
+- SPA (Single Page Application):
+  - No page refresh
+  - ajax call to transfer data
+  - DOM manipulation
+  
+- ui.router
+  - $stateProvider  
+  - $urlRouteProvider
+
+- Sample ebook search application developed consuming APIs from: http://it-ebooks-api.info/

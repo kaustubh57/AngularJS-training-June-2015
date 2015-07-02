@@ -1,6 +1,45 @@
-var login = angular.module('Login',['DataService', 'Utilities', 'ngGrid']);
+var login = angular.module('Login',['ui.router','DataService', 'Utilities', 'ngGrid', 'ebook']);
 
-login.controller('Login.LoginController', ['$scope', '$http', 'UserService', function (scope, http, UserService) {
+login.config(['$stateProvider', '$urlRouterProvider', function(stateProvider, urlRouterProvider) {
+    stateProvider.state(
+        "userform", {
+            url: "/userform",
+            views: {
+                '': {
+                    templateUrl: "template/userForm.html"
+                }
+            }
+        }
+    )
+    .state(
+        "viewA", {
+            url: "/viewA",
+            views: {
+                '': {
+                    templateUrl: "template/viewA.html"
+                },
+                'child1@viewA': {
+                    templateUrl: "template/viewAchild1.html"
+                },
+                'child2@viewA': {
+                    templateUrl: "template/viewAchild2.html"
+                }
+            }
+        }
+    )
+    .state(
+        "ebook", {
+            url: "/ebook",
+            views: {
+                '': {
+                    templateUrl: "ebook/main.html"
+                }
+            }
+        }
+    );
+}])
+
+.controller('Login.LoginController', ['$scope', '$http', 'UserService', function (scope, http, UserService) {
     scope.users = [];
 
     var filterBarPlugin = {
@@ -70,9 +109,27 @@ login.controller('Login.LoginController', ['$scope', '$http', 'UserService', fun
         {key:'bogus', label:'BOGUS'}
     ];
 
+    scope.countries = [];
     // Load data from json file
-    http.get('countries.json').then(function(response){
-        scope.countries = angular.fromJson(response.data.countries);
+    http.get('appdata.json', {
+        //transform response
+        transformResponse: function(response){
+            var data = angular.fromJson(response);
+            angular.forEach(data, function(value, key) {
+                if (key==='countries') {
+                    angular.forEach(value, function(country, index) {
+                        // Add only asian keys
+                        if (country.continent==='asia'){
+                            scope.countries.push(country);
+                        }
+                    });
+                }
+            });
+            return response;
+        }
+    }).then(function(response){
+        //THIS IS NOT REQUIRED BECAUSE WE ARE MODIFYING IN "transformResponse"
+        //scope.countries = angular.fromJson(response.data.countries);
     },
     function(){
 
