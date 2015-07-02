@@ -1,4 +1,5 @@
 (function() {
+'use strict';
 
 angular.module('ebook')
 .service('EbookService', ['$http', function (http) {

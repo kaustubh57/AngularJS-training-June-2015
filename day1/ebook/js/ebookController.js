@@ -14,6 +14,7 @@ angular.module('ebook')
         data: 'ebookList',
         headerRowHeight: 30,
         rowHeight: 50,
+        // define column definition from ebook data
         columnDefs: [
             { field: 'ID', displayName: 'ID'},
             { field: 'Title', displayName: 'Title'},
