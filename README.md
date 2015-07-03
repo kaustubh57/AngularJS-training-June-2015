@@ -107,14 +107,14 @@ Day 5 (4-JULY-2015):
 - Karma (http://karma-runner.github.io/0.8/index.html)  
   - Jasmine framework
   - Testing server / test JSON data
-  - $httpBackend
+  - $httpBackend (https://docs.angularjs.org/api/ngMock/service/$httpBackend)  
 
 - AngularJS:  
   - directive: (https://docs.angularjs.org/guide/directive)  
     - At a high level, directives are markers on a DOM element (such as an attribute, element name, comment or CSS class) that tell AngularJS's HTML compiler ($compile) to attach a specified behavior to that DOM element or even transform the DOM element and its children.
     - restrict - EA  
     - link:  
-      - link as access of scope object
+      - link has access of scope object
     - compile:  
       - compile doesn't have the access of scope object
       
@@ -124,4 +124,4 @@ Day 5 (4-JULY-2015):
 
 - Yeoman (http://yeoman.io):  
   - Templates for web projects
-  - For XD we have used: https://github.com/rayokota/generator-angular-dropwizard
+  - For XD we have used `generator-angular-dropwizard` (AngularJS + Dropwizard): https://github.com/rayokota/generator-angular-dropwizard
