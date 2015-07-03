@@ -1,5 +1,7 @@
 # AngularJS-training-June-2015
 
+[https://angularjs.org/](https://angularjs.org/img/AngularJS-large.png)
+
 Day 1 (29-JUN-2015):  
 - various frameworks: knockout / extjs / DOJO / ionic (ng extension for mobile) / dart  
 - ionic: angularjs mobile development  
