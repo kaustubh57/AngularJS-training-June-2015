@@ -1,0 +1,9 @@
+{
+	"countries": [
+        {"key":"IN", "label":"India","continent":"asia"},
+        {"key":"PAK", "label":"Pakistan","continent":"asia"},
+        {"key":"NP", "label":"Nepal","continent":"asia"},
+        {"key":"BAN", "label":"Bangladesh","continent":"asia"},
+        {"key":"US", "label":"USA","continent":"america"}
+    ]
+}

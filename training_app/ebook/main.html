@@ -1,0 +1,9 @@
+<!-- Book Search -->
+<div ng-controller="EbookController">
+	<label for="ebook.searchBookName">Search Book</label>: <input id="ebook.searchBookName" ng-model="ebook.searchBookName" /> 
+	<button ng-click="searchBook()">Search</button>
+	<br/>
+
+	<div> <label>Search Result:</label></div>
+	<div class="gridStyle" ng-grid="ebookGridList"></div>
+</div>

@@ -94,3 +94,34 @@ Day 4 (2-JULY-2015):
   - $urlRouteProvider
 
 - Sample ebook search application developed consuming APIs from: http://it-ebooks-api.info/
+
+===============================
+
+Day 5 (4-JULY-2015):
+- Node.js
+  - Javascript engine running separately as server
+  - npm command to use node js specific modules
+
+- bower (http://bower.io/)
+
+- Karma (http://karma-runner.github.io/0.8/index.html)  
+  - Jasmine framework
+  - Testing server / test JSON data
+  - $httpBackend
+
+- AngularJS:  
+  - directive: (https://docs.angularjs.org/guide/directive)  
+    - At a high level, directives are markers on a DOM element (such as an attribute, element name, comment or CSS class) that tell AngularJS's HTML compiler ($compile) to attach a specified behavior to that DOM element or even transform the DOM element and its children.
+    - restrict - EA  
+    - link:  
+      - link as access of scope object
+    - compile:  
+      - compile doesn't have the access of scope object
+      
+- Grunt (http://gruntjs.com/)  
+  
+- gulp (http://gulpjs.com/):  
+
+- Yeoman (http://yeoman.io):  
+  - Templates for web projects
+  - For XD we have used: https://github.com/rayokota/generator-angular-dropwizard

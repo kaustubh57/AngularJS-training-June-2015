@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS training</title>
+	<!-- CSS: bootstrap / ng-grid / style -->
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/ng-grid.min.css"/>
+</head>
+<body ng-app="Login">
+
+<div class="container">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li class="active"><a ui-sref='userform'>User Form</a></li>
+            <li class="active"><a ui-sref='viewA'>View A</a></li>
+            <li class="active"><a ui-sref='ebook'>EBook</a></li>
+        </ul>
+    </div>
+    <hr/>
+    <div ui-view></div>
+</div>
+
+</body>
+</html>
+<!-- JavaScript: JQuuery / Angular / router / ng-grid / -->
+<script type="text/javascript" src="lib/jquery.min.js"></script>
+<script type="text/javascript" src="lib/angular.js"></script>
+<script type="text/javascript" src="lib/router.min.js"></script>
+<script type="text/javascript" src="lib/ng-grid-2.0.14.min.js"></script>
+<script type="text/javascript" src="Utilities.js"></script>
+<script type="text/javascript" src="UserService.js"></script>
+<script type="text/javascript" src="app.js"></script>
+
+<script type="text/javascript" src="ebook/js/ebook-module.js"></script>
+<script type="text/javascript" src="ebook/js/ebookController.js"></script>
+<script type="text/javascript" src="ebook/js/ebookService.js"></script>
