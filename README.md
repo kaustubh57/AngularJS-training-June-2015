@@ -1,5 +1,6 @@
 # AngularJS-training-June-2015
 ![AngularJS-training-June-2015](other_files/AngularJS.png)
+
 [https://angularjs.org](https://angularjs.org)
 
 Day 1 (29-JUN-2015):  
