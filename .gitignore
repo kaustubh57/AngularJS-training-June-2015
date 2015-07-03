@@ -1,10 +1,5 @@
 *.sw*
 *~
-build/
-bin/
-node_modules/
-bower_components/
-vendor/
 *.sublime-project
 *.sublime-workspace
 .DS_Store
@@ -18,8 +13,3 @@ vendor/
 *.log
 *.swp
 logs
-target
-/bin/
-**/lib/
-**/node_modules/
-**/bower_components/
