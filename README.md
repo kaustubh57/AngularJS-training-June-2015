@@ -125,6 +125,13 @@ Day 5 (4-JULY-2015):
   
 - gulp (http://gulpjs.com/):  
 
+===============================
+
+Post training notes:
 - Yeoman (http://yeoman.io):  
   - Templates for web projects
   - For XD we have used `generator-angular-dropwizard` (AngularJS + Dropwizard): https://github.com/rayokota/generator-angular-dropwizard
+  
+- Partial loading of angular modules (javascript files)
+  - Create custom directive
+  - Use third party lib like loadOnDemand - https://github.com/AndyGrom/loadOnDemand

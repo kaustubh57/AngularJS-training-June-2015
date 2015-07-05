@@ -13,3 +13,5 @@
 *.log
 *.swp
 logs
+node_modules/
+bower_components/

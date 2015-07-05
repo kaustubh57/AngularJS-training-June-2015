@@ -1,6 +1,17 @@
-var login = angular.module('Login',['ui.router','DataService', 'Utilities', 'ngGrid', 'ebook']);
+var login = angular.module('Login',['ui.router','loadOnDemand', 'DataService', 'Utilities', 'ngGrid', 'ebook', 'partialjs']);
 
-login.config(['$stateProvider', '$urlRouterProvider', function(stateProvider, urlRouterProvider) {
+login.config(['$loadOnDemandProvider', function ($loadOnDemandProvider) {
+    var modules = [
+        {
+            name: 'partialjs',     // name of module
+            script: 'partialjs/js/partialjsController.js', // path to javascript file
+            template: 'partialjs/loadOnDemand.html'
+        }
+    ];
+    $loadOnDemandProvider.config(modules);
+}])
+
+.config(['$stateProvider', '$urlRouterProvider', function(stateProvider, urlRouterProvider) {
     stateProvider.state(
         "userform", {
             url: "/userform",
@@ -36,7 +47,18 @@ login.config(['$stateProvider', '$urlRouterProvider', function(stateProvider, ur
                 }
             }
         }
-    );
+    )
+    .state(
+        "partialjs", {
+            url: "/partialjs",
+            views: {
+                '': {
+                    templateUrl: "partialjs/main.html"
+                }
+            }
+        }
+    )
+    ;
 }])
 
 .controller('Login.LoginController', ['$scope', '$http', 'UserService', function (scope, http, UserService) {
