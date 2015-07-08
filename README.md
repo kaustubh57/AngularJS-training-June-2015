@@ -134,4 +134,8 @@ Post training notes:
   
 - Partial loading of angular modules (javascript files)
   - Create custom directive
-  - Use third party lib like loadOnDemand - https://github.com/AndyGrom/loadOnDemand
+  - Use third party lib like loadOnDemand - https://github.com/AndyGrom/
+
+Here are couple of helpful links which might get you started with AngularJS:
+  - https://github.com/johnpapa/angular-styleguide
+  - https://github.com/jmcunningham/AngularJS-Learning
