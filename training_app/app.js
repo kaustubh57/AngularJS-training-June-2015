@@ -1,4 +1,12 @@
-var login = angular.module('Login',['ui.router','loadOnDemand', 'DataService', 'Utilities', 'ngGrid', 'ebook', 'partialjs']);
+var login = angular.module('Login',[
+    'ui.router',
+    'loadOnDemand',
+    'DataService',
+    'Utilities',
+    'ngGrid',
+    'ebook',
+    'partialjs',
+    'dollarScope']);
 
 login.config(['$loadOnDemandProvider', function ($loadOnDemandProvider) {
     var modules = [
@@ -58,10 +66,22 @@ login.config(['$loadOnDemandProvider', function ($loadOnDemandProvider) {
             }
         }
     )
+    .state(
+        "dollar-scope", {
+            url: "/dollarScope",
+            views: {
+                '': {
+                    templateUrl: "dollar-scope/main.html"
+                }
+            }
+        }
+    )
     ;
 }])
 
-.controller('Login.LoginController', ['$scope', '$http', 'UserService', function (scope, http, UserService) {
+.controller('Login.LoginController', ['$scope', '$rootScope', '$http', 'UserService',
+                            function (scope, rootScope, http, UserService) {
+
     scope.users = [];
 
     var filterBarPlugin = {
